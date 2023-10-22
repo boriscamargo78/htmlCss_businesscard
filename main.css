@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "poppins", sans-serif;
+    box-sizing: border-box;
+    transition: all 0.5s linear;
+    color: bisque;
+}
+
+.black-text {
+    display: inline-block;
+    position: relative;
+    align-items: first baseline;
+    color: black;
+    line-height: 34px;
+    top: 0;
+    left: 0;
+}
+
+section {
+    display: grid;
+    place-content: center;
+    min-height: 20vh;
+    background-color: rgb(241, 241, 241);
+}
+
+.colored-red {
+    color: rgb(146, 0, 0); /*Cambiar el color en la palabra emprendimiento*/
+}
+
+/*Define las dimensiones y posicion que tendra la clase*/
+.tarjeta-presentacion {
+    width: 362px;
+    height: 221px;
+    position: relative;
+}
+
+.tarjeta-presentacion .frente ,
+.tarjeta-presentacion .reves {
+    margin-top: 20px;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 24px;
+    overflow: hidden;
+
+}
+
+.tarjeta-presentacion .frente {
+    background-color: rgb(146, 0, 0);
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.tarjeta-presentacion .reves {
+    background-color: #000000;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+/*Ante el evento de sobrevolar el elemento, lo gira o hace flip la cantidad de grados que se especifican y sobre el eje que usemos*/
+.tarjeta-presentacion:hover .frente {
+    transform: perspective(700px) rotateY(180deg);
+}
+
+/*Determina las dimensiones de la imagen de la foto*/
+.tarjeta-presentacion .frente img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+/*Determina las dimensiones de la imagen de la foto*/
+.tarjeta-presentacion .reves img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*Dibuja un ovalo dentro de la clase*/
+.tarjeta-presentacion .frente::before {
+    content: "";
+    border-radius: 250%;
+    border: 60px solid #24242420;
+    position: absolute;
+    top: -25%;
+    height: 100%;
+    width: 320px;
+    transform: rotateZ(35deg);
+}
+
+/*Dibuja un ovalo dentro de la clase*/
+.tarjeta-presentacion .reves::before {
+    content: "";
+    border-radius: 250%;
+    border: 80px solid #a7a6a620;
+    position: absolute;
+    top: -25%;
+    height: 100%;
+    width: 320px;
+    transform: rotateZ(35deg);
+    z-index: -1; /*Tuve que agregar esta linea porque al estar por encima de mis hipervinculos, los tapaba y los deshabilitaba*/
+}
+
+/*Pasar cursor sobre el elemento, lo gira en el eje escogido, la cantidad de grados que se especifican y sobre el eje que usemos*/
+.tarjeta-presentacion:hover .reves {
+    transform: perspective(700px) rotateY(0deg);
+}
+
+/*Aplica a la tarjeta del reves*/
+.tarjeta-presentacion .reves {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 24px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #131313;
+    transform: perspective(700px) rotateY(-180deg);
+}
+
+.tarjeta-presentacion .reves .imagen {
+    display: grid;
+    justify-content: right;
+    flex-direction: column-reverse;
+    overflow: hidden;
+    width: 340px;
+    z-index: 2;    
+}
+
+.tarjeta-presentacion .reves .info {
+    display: grid;
+    justify-content: left;
+    flex-direction: column;
+    overflow: visible;
+    margin-left: 24px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.tarjeta-presentacion .reves .info .contact {
+    line-height: 32px;
+    margin-block: 8px;
+}
+
+.tarjeta-presentacion .reves .info .contact i {
+    font-size: 18px;
+    margin-left: 16px;    
+}
+
+#aplicacion-id {
+    /* Implementacion de id*/
+    color: rgb(3, 3, 3);
+    font-size: 12px;
+    align-items: center;
+  }
+
